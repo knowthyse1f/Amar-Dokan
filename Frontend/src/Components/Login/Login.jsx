@@ -1,15 +1,23 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import styles from "../../styles/styles";
 import { Link } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [visible, setVisible] = useState("false");
+  const [visible, setVisible] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setVisible(!visible);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form submitted");
+  };
 
   return (
-    <div className=" min-h-screen bg-gray-50 flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
           Login to your Account
@@ -17,7 +25,7 @@ const Login = () => {
       </div>
       <div className="mt-6 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label
                 htmlFor="email"
@@ -25,7 +33,7 @@ const Login = () => {
               >
                 Email Address
               </label>
-              <div className="at-1">
+              <div className="mt-1">
                 <input
                   type="email"
                   name="email"
@@ -33,7 +41,7 @@ const Login = () => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="appearance-none block w-full px-3 py-2 border borber-gray-300 rounded-md placeholder-gray-400 focus-within:outline-none focus:ring-blue-500 focue:border-blue-500 sm:text-sm"
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                 />
               </div>
             </div>
@@ -44,7 +52,7 @@ const Login = () => {
               >
                 Password
               </label>
-              <div className="at-1 relative">
+              <div className="mt-1 relative">
                 <input
                   type={visible ? "text" : "password"}
                   name="password"
@@ -52,24 +60,24 @@ const Login = () => {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="appearance-none block w-full px-3 py-2 border borber-gray-300 rounded-md placeholder-gray-400 focus-within:outline-none focus:ring-blue-500 focue:border-blue-500 sm:text-sm"
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                 />
                 {visible ? (
                   <AiOutlineEye
                     className="absolute right-2 top-2 cursor-pointer"
                     size={25}
-                    onClick={() => setVisible(false)}
+                    onClick={togglePasswordVisibility}
                   />
                 ) : (
                   <AiOutlineEyeInvisible
                     className="absolute right-2 top-2 cursor-pointer"
                     size={25}
-                    onClick={() => setVisible(true)}
+                    onClick={togglePasswordVisibility}
                   />
                 )}
               </div>
             </div>
-            <div className="flex items-center justify-between ">
+            <div className="flex items-center justify-between">
               <div className="flex items-center">
                 <input
                   type="checkbox"
@@ -87,22 +95,21 @@ const Login = () => {
               <div className="text-sm">
                 <a
                   href=".forgetpass"
-                  className=" font-medium text-blue-400 hover:text-blue-300"
+                  className="font-medium text-blue-400 hover:text-blue-300"
                 >
                   Forget your password?
                 </a>
               </div>
             </div>
             <div>
-              <button type='submit'
-              className="custom-button"
-              >
-               Submit </button>  
+              <button type="submit" className="custom-button">
+                Submit
+              </button>
             </div>
-            <div className="flex items-center justify-between ">
-              <h4>Not have any Account?</h4>
-              <Link to="/sign-up" className="text-blue-500 ">
-              Sign Up
+            <div className="flex items-center justify-between">
+              <h4>Don't have an Account?</h4>
+              <Link to="/sign-up" className="text-blue-500">
+                Sign Up
               </Link>
             </div>
           </form>
