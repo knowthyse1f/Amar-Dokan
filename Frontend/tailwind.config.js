@@ -7,5 +7,10 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [],
+  daisyui: {
+    themes: ["light"], // Specify only the light theme
+  },
+  plugins: [
+    require('daisyui'),
+  ],
 }
