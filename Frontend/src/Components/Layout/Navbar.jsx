@@ -25,7 +25,7 @@ const Navbar = () => {
         </div>
         <Link to="/" className="items-center lg:flex rounded-md">
           <img src={logoImage} alt="Amar-Dokan Logo" style={{ width: '60px', height: 'auto' }} />
-          <span className="ml-2 text-xl text-gray-600"> <a>Amar Dokan</a></span>
+          <span className="ml-2 text-xl text-gray-600 font-bold"> <a>Amar Dokan</a></span>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
