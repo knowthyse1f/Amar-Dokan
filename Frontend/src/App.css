@@ -57,7 +57,7 @@ input[type=number] {
 }
 
 .custom-button:hover {
-  background-color: #1d4ed8; /* hover:bg-blue-700 equivalent */
+  background-color:white; /* hover:bg-blue-700 equivalent */
 }
 
 .custom-button:focus {
@@ -65,4 +65,18 @@ input[type=number] {
   ring-offset-width: 2px; /* focus:ring-offset-2 equivalent */
   ring-offset-color: #fff; /* focus:ring-offset-2 equivalent */
   ring-color: #3b82f6; /* focus:ring-blue-500 equivalent */
+}
+
+.button-hover {
+  background-color: black;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 0.375rem;
+  margin-right: 9px;
+  transition: background-color 0.3s ease;
+}
+
+.button-hover:hover {
+  background-color: white;
+  color: black;
 }
